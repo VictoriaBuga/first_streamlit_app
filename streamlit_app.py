@@ -41,10 +41,8 @@ my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_rows)
-snowflake.connector.disconnect(**streamlit.secrets["snowflake"])
 
 import snowflake.connector
-snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
@@ -52,4 +50,3 @@ streamlit.write('The user entered', add_my_fruit)
 my_cur1 = my_cnx1.cursor()
 my_cur1.execute("insert into pc_rivery_db.public.fruit_load_list values(",add_my_fruit,")")
 my_data_rows1 = my_cur1.fetchall()
-snowflake.connector.disconnect(**streamlit.secrets["snowflake"])
