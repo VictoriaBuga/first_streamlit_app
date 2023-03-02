@@ -42,7 +42,6 @@ my_data_rows = my_cur.fetchall()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_rows)
 
-import snowflake.connector
 my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
