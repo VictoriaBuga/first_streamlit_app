@@ -41,7 +41,7 @@ my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_rows)
-
+snowflake.connector.disconnect(**streamlit.secrets["snowflake"])
 
 import snowflake.connector
 my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
