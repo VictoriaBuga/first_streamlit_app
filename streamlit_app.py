@@ -50,5 +50,5 @@ streamlit.write('The user entered', add_my_fruit)
 my_cursor = my_cnx.cursor()
 #my_cursor.execute("insert into pc_rivery_db.public.fruit_load_list values(" + add_my_fruit + ")")
 my_data_rows = my_cursor.fetchall()
-
+  
 
