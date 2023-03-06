@@ -36,19 +36,19 @@ streamlit.dataframe(fruityvice_normalized)
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_data_rows = my_cur.fetchall()
+my_cursor = my_cnx.cursor()
+my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
+my_data_rows = my_cursor.fetchall()
 streamlit.text("Hello from Snowflake:")
 streamlit.text(my_data_rows)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+my_cursor.execute("insert into fruit_load_list values ('from streamlit')")
 
 my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 streamlit.write('The user entered', add_my_fruit)
-my_cur1 = my_cnx1.cursor()
-my_cur1.execute("insert into pc_rivery_db.public.fruit_load_list values(" + add_my_fruit + ")")
-my_data_rows1 = my_cur1.fetchall()
+my_cursor = my_cnx.cursor()
+my_cursor.execute("insert into pc_rivery_db.public.fruit_load_list values(" + add_my_fruit + ")")
+my_data_rows = my_cursor.fetchall()
 
 
