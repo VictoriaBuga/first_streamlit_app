@@ -40,24 +40,24 @@ streamlit.write('The user entered', fruit_choice)
 # write your own comment -what does the next line do? 
 
 # write your own comment - what does this do?
-"""
-import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cursor = my_cnx.cursor()
-my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_data_rows = my_cursor.fetchall()
-streamlit.text("Hello from Snowflake:")
-streamlit.text(my_data_rows)
-my_cursor.execute("insert into fruit_load_list values ('from streamlit')")
+#import snowflake.connector
 
-my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cursor = my_cnx.cursor()
+#my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
+#my_data_rows = my_cursor.fetchall()
+#streamlit.text("Hello from Snowflake:")
+#streamlit.text(my_data_rows)
+#my_cursor.execute("insert into fruit_load_list values ('from streamlit')")
 
-add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.write('The user entered', add_my_fruit)
-my_cursor = my_cnx.cursor()
-sql = "insert into pc_rivery_db.public.fruit_load_list values(%s)"
-my_cursor.execute(sql, add_my_fruit)
-my_data_rows = my_cursor.fetchall() """
+#my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+
+#add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+#streamlit.write('The user entered', add_my_fruit)
+#my_cursor = my_cnx.cursor()
+#sql = "insert into pc_rivery_db.public.fruit_load_list values(%s)"
+#my_cursor.execute(sql, add_my_fruit)
+#my_data_rows = my_cursor.fetchall() """
   
 
