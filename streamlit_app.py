@@ -42,13 +42,20 @@ streamlit.write('The user entered', fruit_choice)
 # write your own comment - what does this do?
 
 #import snowflake.connector
-
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cursor = my_cnx.cursor()
-my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_data_rows = my_cursor.fetchall()
-streamlit.text("The fruit load list contains")
-streamlit.dataframe(my_data_rows)
+streamlit.header("The fruit load list contains:")
+def get_fruit_load_list():
+  with my_cnx.cursor() as my_cursor:
+       my_cursor.execute("select * from fruit_load_list")
+       return my_cursor.fetchall()
+if streamlit.button('Get Fruit Load List'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data_rows = get_fruit_load_list()
+  streamlit.dataframe(my_data_rows)
+#my_cursor = my_cnx.cursor()
+#my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
+#my_data_rows = my_cursor.fetchall()
+#streamlit.text("The fruit load list contains")
+#streamlit.dataframe(my_data_rows)
 #my_cursor.execute("insert into fruit_load_list values ('from streamlit')")
 
 #my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
