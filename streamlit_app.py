@@ -40,8 +40,7 @@ streamlit.write('The user entered', fruit_choice)
 # write your own comment -what does the next line do? 
 
 # write your own comment - what does this do?
-
-
+"""
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -59,6 +58,6 @@ streamlit.write('The user entered', add_my_fruit)
 my_cursor = my_cnx.cursor()
 sql = "insert into pc_rivery_db.public.fruit_load_list values(%s)"
 my_cursor.execute(sql, add_my_fruit)
-my_data_rows = my_cursor.fetchall()
+my_data_rows = my_cursor.fetchall() """
   
 
