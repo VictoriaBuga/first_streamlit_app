@@ -43,12 +43,12 @@ streamlit.write('The user entered', fruit_choice)
 
 #import snowflake.connector
 
-#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#my_cursor = my_cnx.cursor()
-#my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
-#my_data_rows = my_cursor.fetchall()
-#streamlit.text("Hello from Snowflake:")
-#streamlit.text(my_data_rows)
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cursor = my_cnx.cursor()
+my_cursor.execute("select * from pc_rivery_db.public.fruit_load_list")
+my_data_rows = my_cursor.fetchall()
+streamlit.text("The fruit load list contains")
+streamlit.dataframe(my_data_rows)
 #my_cursor.execute("insert into fruit_load_list values ('from streamlit')")
 
 #my_cnx1 = snowflake.connector.connect(**streamlit.secrets["snowflake"])
@@ -58,6 +58,6 @@ streamlit.write('The user entered', fruit_choice)
 #my_cursor = my_cnx.cursor()
 #sql = "insert into pc_rivery_db.public.fruit_load_list values(%s)"
 #my_cursor.execute(sql, add_my_fruit)
-#my_data_rows = my_cursor.fetchall() """
+#my_data_rows = my_cursor.fetchall() 
   
 
